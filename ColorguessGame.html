@@ -1,0 +1,287 @@
+<html >
+<head>
+    <title>Colorsgame</title>
+    <style>
+       #heading{
+
+color:rgb(0, 238, 255);
+text-align: center;
+/*margin-left:300px;
+margin-right:250px;*/
+font-family:'Uchen', serif;
+font-size:3.5em;
+font-weight: bold;
+
+} 
+        #button{
+align-self: center;
+background-color:rgb(0, 255, 34);
+
+margin-top: 10px;
+margin-left:700px;
+margin-right:150px;
+width:200px;
+height:50px;
+transition: background-color 3s;
+
+
+        }
+        #button:hover{
+
+            background-color: rgb(128, 0, 60);
+        }
+        #para{
+
+            font-size:3em;
+            text-align: center;
+            color:black;
+            font-family:'Uchen', serif;
+
+        }
+        #para1{
+
+font-size:2em;
+text-align: center;
+color:black;
+font-family:'Uchen', serif;
+margin-left:60px;
+
+
+}
+#mycontainer{
+display:flex;
+    width:100%;
+    height: 240px;
+    background-color: white;
+    border-color:white;
+justify-content: space-evenly;
+
+align-content: center;
+}
+#circle1{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+   background-color:rgb(220, 20, 97);
+   cursor:pointer;
+    
+
+}
+#circle2{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:rgb(20, 220, 103);
+    cursor:pointer;
+
+}
+#circle3{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:rgb(40, 20, 220);
+    cursor:pointer;
+
+}
+#circle4{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+   background-color:rgb(217, 220, 20);
+   cursor:pointer;
+
+}
+#circle5{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:rgb(220, 20, 20);
+    cursor:pointer;
+
+}
+
+
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Uchen&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<h1 id="heading"><u style="color:rgb(22, 135, 157)"> GUESS THE COLOR !</u> </h1>
+<p id="para"></p><br>
+
+<div id="mycontainer" >
+    <div id="circle1"></div>
+    <div id="circle2"></div>
+    <div id="circle3"></div>
+    <div id="circle4"> </div>
+    <div id="circle5"> </div>
+
+
+</div>
+<button id="button" >PLAY </button> 
+<p id="para1" ></p>
+<script>
+
+let z=document.querySelector('#button');
+function generaterandomcolor(){     //random color genration 
+   let x= Math.ceil(Math.random()*255);
+   let y=Math.ceil(Math.random()*255);
+   let z=Math.ceil(Math.random()*255);
+   var p= "rgb(" + x + "," + y + "," + z + ")";
+    return p;
+}
+
+/*let colors=[]
+    for(i=0;i<=5;i++)
+{
+  
+  colors.push(generaterandomcolor())
+  
+}
+console.log(colors)*/
+
+
+z.onclick=function () {
+    
+    generaterandomcolor();
+    let colors=[]
+    for(i=0;i<=5;i++)
+{
+  
+  colors.push(generaterandomcolor())
+  
+}
+let s=document.querySelector('#para');
+s.innerHTML=colors[Math.floor(Math.random()*colors.length)]
+
+
+   let a=document.querySelector('#circle1');
+    a.style.backgroundColor=colors[0]
+    let b=document.querySelector('#circle2');
+    b.style.backgroundColor=colors[1]
+    let c=document.querySelector('#circle3');
+    c.style.backgroundColor=colors[2]
+    let d=document.querySelector('#circle4');
+    d.style.backgroundColor=colors[3]
+    let e=document.querySelector('#circle5');
+    e.style.backgroundColor=colors[4]
+    let xs=document.querySelector('#para1');
+    //xs.innerHTML="Correct Answer,You got it ";
+    a.onclick=function() {
+
+        if(colors[0]===s.innerHTML){
+xs.innerHTML="Correct Answer ,Well Done "
+            
+        }
+        else{
+
+            xs.innerHTML="Try again ,Better Luck "
+        }
+    }
+    b.onclick=function() {
+
+if(colors[1]===s.innerHTML){
+xs.innerHTML="Correct Answer ,Well Done "
+    
+}
+else{
+
+    xs.innerHTML="Try again ,Better Luck "
+}
+}
+c.onclick=function() {
+
+if(colors[2]===s.innerHTML){
+xs.innerHTML="Correct Answer ,Well Done "
+    
+}
+else{
+
+    xs.innerHTML="Try again ,Better Luck "
+}
+}
+d.onclick=function() {
+
+if(colors[3]===s.innerHTML){
+xs.innerHTML="Correct Answer ,Well Done "
+    
+}
+else{
+
+    xs.innerHTML="Try again ,Better Luck "
+}
+}
+e.onclick=function() {
+
+if(colors[4]===s.innerHTML){
+xs.innerHTML="Correct Answer ,Well Done "
+    
+}
+else{
+
+    xs.innerHTML="Try again ,Better Luck "
+}
+}
+    
+}
+
+
+/*z.onclick=function(){
+let a=document.querySelector('#circle1');
+let x= Math.ceil(Math.random()*255);
+   let y=Math.ceil(Math.random()*255);
+   let z=Math.ceil(Math.random()*255);
+
+a.style.backgroundColor="rgb("+ x + ","+y+","+z+")";
+
+
+let b=document.querySelector('#circle2');
+let x1= Math.ceil(Math.random()*255);
+   let y1=Math.ceil(Math.random()*255);
+   let z1=Math.ceil(Math.random()*255);
+b.style.backgroundColor="rgb("+x1+","+y1+","+z1+")";
+let c=document.querySelector('#circle3');
+let x2= Math.ceil(Math.random()*255);
+   let y2=Math.ceil(Math.random()*255);
+   let z2=Math.ceil(Math.random()*255);
+
+c.style.backgroundColor="rgb("+ x2+","+y2+","+z2+")";
+
+let d=document.querySelector('#circle4');
+let x3= Math.ceil(Math.random()*255);
+   let y3=Math.ceil(Math.random()*255);
+   let z3=Math.ceil(Math.random()*255);
+
+d.style.backgroundColor="rgb("+ x3+","+y3+","+z3+")";
+let e=document.querySelector('#circle5');
+let x4= Math.ceil(Math.random()*255);
+   let y4=Math.ceil(Math.random()*255);
+   let z4=Math.ceil(Math.random()*255);
+e.style.backgroundColor="rgb("+ x4+","+y4+","+z4+")";
+let s=document.querySelector('#para');
+var l1=[`"(${x},${y},${z})"`,`"(${x1},${y1},${z1})"`,`"(${x2},${y2},${z2})"`,`("${x3},${y3},${z3})"`,`"(${x4},${y4},${z4})"`];
+//s.innerHTML=l1[Math.ceil(Math.round()*l1.length)]
+
+}*/
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
